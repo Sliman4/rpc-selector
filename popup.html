@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RPC SELECTOR</title>
+		<link rel="stylesheet" href="css/popup.css" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+		<h1>RPC SELECTOR</h1>
+		<p>
+			A fork of the Redirector extension, edited to support NEAR RPCs. Maintained by slimedragon.near
+		</p>
+		<div class="disabled"><span data-show="disabled" style="display: none;">Disabled</span></div>
+		<button id="toggle-disabled"><span data-show="disabled" style="display:none">Enable RPC Selector</span><span data-show="!disabled">Disable RPC Selector</span></button>
+        <button id="open-redirector-settings">Edit RPC URL (lava by default)</button>
+		<label><input id="enable-logging" type="checkbox" data-bind="logging" /> <span>Enable logging</span></label>
+		<script src="js/stub.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/popup.js"></script>
+	</body>
+</html>

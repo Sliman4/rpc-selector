@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="build">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/redirector-chrome.zip!/" />
+      <root url="jar://$PROJECT_DIR$/build/redirector-opera.zip!/" />
+      <root url="jar://$PROJECT_DIR$/build/redirector-edge.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
