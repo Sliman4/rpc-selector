@@ -8,8 +8,11 @@ Web browser extension (Firefox, Vivaldi, Chrome, Opera, Edge) to redirect URLs b
 In loving memory of Einar Egilsson, who gave us Redirector and selflessly nurtured it for many years.  We miss you Einar, and will always remember your kindness and generosity.
 
 ## Download Links
+Submitted, waiting for approval
+<!--
 * [Firefox](TODO)
 * [Google Chrome and Vivaldi](TODO)
+-->
 <!--
 Opera extension is no longer present (as of 2023/01/16)
 * [Opera](https://addons.opera.com/extensions/details/redirector-2/)
