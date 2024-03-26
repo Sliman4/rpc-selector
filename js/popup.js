@@ -1,5 +1,3 @@
-
-
 var storage = chrome.storage.local;
 var viewModel = {}; //Just an object for the databinding
 
@@ -49,6 +47,28 @@ function pageLoad() {
 	el('#enable-logging').addEventListener('input', () => toggle('logging'));
 	el('#toggle-disabled').addEventListener('click', () => toggle('disabled'));
 	el('#open-redirector-settings').addEventListener('click', openRedirectorSettings);
+
+	el("#rpc-near-org").addEventListener('click', () => setRpcUrl("https://rpc.mainnet.near.org/"));
+	el("#rpc-lava").addEventListener('click', () => setRpcUrl("https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/"));
+	el("#rpc-fastnear").addEventListener('click', () => setRpcUrl("https://rpc.fastnear.com/"));
+	el("#rpc-near-org-beta").addEventListener('click', () => setRpcUrl("https://beta.rpc.mainnet.near.org/"));
+	el("#rpc-ankr").addEventListener('click', () => setRpcUrl("https://rpc.ankr.com/near/"));
+	el("#rpc-web4").addEventListener('click', () => setRpcUrl("https://rpc.web4.near.page/"));
+	const inputField = el("#rpc-url");
+	inputField.addEventListener('input', () => {
+		setRpcUrl(inputField.value);
+	});
+
+	storage.get({rpcRedirect:"https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/"}, function(obj) {
+		setRpcUrl(obj.rpcRedirect);
+	})
+}
+
+function setRpcUrl(url) {
+	el("#rpc-url").value = url;
+	el("#current-rpc").innerText = url;
+	storage.set({rpcRedirect: url});
+	chrome.runtime.sendMessage({type: "set-rpc-url", url: url});
 }
 
 pageLoad();

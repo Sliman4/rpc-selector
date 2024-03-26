@@ -7,6 +7,26 @@ function log(msg, force) {
 }
 log.enabled = false;
 
+const DEFAULT_REDIRECT = new Redirect(
+	{
+		"description": "Main RPC redirect that makes this extension work",
+		"exampleUrl": "https://rpc.fastnear.com/",
+		"exampleResult": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
+		"error": null,
+		"includePattern": "^https://(rpc\\.fastnear\\.com|rpc\\.mainnet\\.near\\.org|beta\\.rpc\\.mainnet\\.near\\.org|rpc\\.web4\\.near\\.page|near-mainnet\\.api\\.pagoda\\.co/rpc/v1|1rpc\\.io/near|near-mainnet-rpc\\.allthatnode\\.com:3030|rpc\\.ankr\\.com/near|public-rpc\\.blockpi\\.io/http/near|rpc\\.near\\.gateway\\.fm|getblock\\.io/nodes/near|near\\.lavenderfive\\.com|near\\.lava\\.build|nodereal\\.io/api-marketplace/near-rpc|near\\.nownodes\\.io|endpoints\\.omniatech\\.io/v1/near/mainnet/public|api\\.seracle\\.com/saas/baas/rpc/near/mainnet/public)/?$",
+		"excludePattern": "",
+		"patternDesc": "FASTNEAR to Lava",
+		"redirectUrl": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
+		"patternType": "R",
+		"processMatches": "noProcessing",
+		"disabled": false,
+		"appliesTo": [
+			"xmlhttprequest"
+		],
+		"isRPC": true
+	}
+);
+
 function isDarkMode() {
 	return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
@@ -177,24 +197,7 @@ function setUpRedirectListener() {
 	chrome.webRequest.onBeforeRequest.removeListener(checkRedirects); //Unsubscribe first, in case there are changes...
 	chrome.webNavigation.onHistoryStateUpdated.removeListener(checkHistoryStateRedirects);
 
-	storageArea.get({redirects:[new Redirect(
-			{
-				"description": "Main RPC redirect that makes this extension work",
-				"exampleUrl": "https://rpc.fastnear.com/",
-				"exampleResult": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
-				"error": null,
-				"includePattern": "^https://(rpc\\.fastnear\\.com|rpc\\.mainnet\\.near\\.org|beta\\.rpc\\.mainnet\\.near\\.org|rpc\\.web4\\.near\\.page|near-mainnet\\.api\\.pagoda\\.co/rpc/v1|1rpc\\.io/near|near-mainnet-rpc\\.allthatnode\\.com:3030|rpc\\.ankr\\.com/near|public-rpc\\.blockpi\\.io/http/near|rpc\\.near\\.gateway\\.fm|getblock\\.io/nodes/near|near\\.lavenderfive\\.com|near\\.lava\\.build|nodereal\\.io/api-marketplace/near-rpc|near\\.nownodes\\.io|endpoints\\.omniatech\\.io/v1/near/mainnet/public|api\\.seracle\\.com/saas/baas/rpc/near/mainnet/public)/?$",
-				"excludePattern": "",
-				"patternDesc": "FASTNEAR to Lava",
-				"redirectUrl": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
-				"patternType": "R",
-				"processMatches": "noProcessing",
-				"disabled": false,
-				"appliesTo": [
-					"xmlhttprequest"
-				]
-			}
-		)]}, function(obj) {
+	storageArea.get({redirects:[DEFAULT_REDIRECT]}, function(obj) {
 		var redirects = obj.redirects;
 		if (redirects.length == 0) {
 			log('No redirects defined, not setting up listener');
@@ -268,7 +271,7 @@ chrome.runtime.onMessage.addListener(
 		if (request.type == 'get-redirects') {
 			log('Getting redirects from storage');
 			storageArea.get({
-				redirects: []
+				redirects: [DEFAULT_REDIRECT]
 			}, function (obj) {
 				log('Got redirects from storage: ' + JSON.stringify(obj));
 				sendResponse(obj);
@@ -368,6 +371,21 @@ chrome.runtime.onMessage.addListener(
 					}
 				});
 
+		} else if (request.type == 'set-rpc-url') {
+			log('Setting RPC URL to ' + request.url);
+			storageArea.get({redirects: [DEFAULT_REDIRECT]}, function(obj) {
+				var redirects = obj.redirects;
+				for (var i = 0; i < redirects.length; i++) {
+					if (redirects[i].isRPC) {
+						redirects[i].exampleResult = request.url;
+						redirects[i].redirectUrl = request.url;
+					}
+				}
+				storageArea.set({redirects: redirects}, function() {
+					log('RPC URL updated');
+					setUpRedirectListener();
+				});
+			})
 		} else {
 			log('Unexpected message: ' + JSON.stringify(request));
 			return false;

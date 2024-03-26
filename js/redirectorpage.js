@@ -282,18 +282,19 @@ function pageLoad() {
 			//Add example redirect for first time users...
 			REDIRECTS.push(new Redirect(
 				{
-					"description": "Main RPC redirect that makes this extension work",
-					"exampleUrl": "https://rpc.mainnet.near.org/",
-					"exampleResult": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
+					"description": "Example redirect",
+					"exampleUrl": "https://example.com/",
+					"exampleResult": "https://example.org/",
 					"error": null,
-					"includePattern": "https://rpc.mainnet.near.org/",
+					"includePattern": "https://example.com/",
 					"excludePattern": "",
-					"patternDesc": "near.org to Lava",
-					"redirectUrl": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
+					"patternDesc": "example.com to example.org",
+					"redirectUrl": "https://example.org/",
 					"patternType": "W",
 					"processMatches": "noProcessing",
-					"disabled": false,
+					"disabled": true,
 					"appliesTo": [
+						"main_frame",
 						"xmlhttprequest"
 					]
 				}

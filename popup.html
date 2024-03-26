@@ -13,7 +13,16 @@
 		</p>
 		<div class="disabled"><span data-show="disabled" style="display: none;">Disabled</span></div>
 		<button id="toggle-disabled"><span data-show="disabled" style="display:none">Enable RPC Selector</span><span data-show="!disabled">Disable RPC Selector</span></button>
-        <button id="open-redirector-settings">Edit RPC URL (lava by default)</button>
+		<label for="rpc-url">RPC URL:</label><input type="text" id="rpc-url" placeholder="https://rpc.mainnet..." />
+		<button id="rpc-near-org">near.org</button>
+		<button id="rpc-lava">Lava</button>
+		<button id="rpc-fastnear">FASTNEAR</button>
+		<button id="rpc-near-org-beta">near.org BETA</button>
+		<button id="rpc-ankr">ANKR</button>
+		<button id="rpc-web4">web4</button>
+		Current RPC: <span id="current-rpc"></span>
+		<hr/>
+		<button id="open-redirector-settings">Edit custom redirects</button>
 		<label><input id="enable-logging" type="checkbox" data-bind="logging" /> <span>Enable logging</span></label>
 		<script src="js/stub.js"></script>
 		<script src="js/util.js"></script>

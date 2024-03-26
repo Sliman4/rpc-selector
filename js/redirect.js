@@ -241,6 +241,7 @@ Redirect.prototype = {
 		} else {
 			this.appliesTo = ['xmlhttprequest'];
 		}
+		this.isRPC = o.isRPC || false;
 	},
 
 	get appliesToText() {
