@@ -8,8 +8,6 @@ Web browser extension (Firefox, Vivaldi, Chrome, Opera, Edge) to redirect URLs b
 In loving memory of Einar Egilsson, who gave us Redirector and selflessly nurtured it for many years.  We miss you Einar, and will always remember your kindness and generosity.
 
 ## Download Links
-Submitted, waiting for approval
-
 * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/rpc-selector/)
 * Chrome: I can't upload it to Chrome Web Store, because it's a fork of an old extension that uses old stuff, and extensions that use old stuff are not allowed on chrome web store. But if you really want to install this extension, here are the steps:
   1. Click the green `<> Code` button at the top, and `Download ZIP`
