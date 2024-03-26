@@ -9,9 +9,16 @@ In loving memory of Einar Egilsson, who gave us Redirector and selflessly nurtur
 
 ## Download Links
 Submitted, waiting for approval
-<!--
-* [Firefox](TODO)
-* [Google Chrome and Vivaldi](TODO)
+
+* [Firefox](https://addons.mozilla.org/en-US/firefox/addon/rpc-selector/)
+* Chrome: I can't upload it to Chrome Web Store, because it's a fork of an old extension that uses old stuff, and extensions that use old stuff are not allowed on chrome web store. But if you really want to install this extension, here are the steps:
+  1. Click the green `<> Code` button at the top, and `Download ZIP`
+  2. Unpack the zip into a directory
+  3. Go to `chrome://extensions/`
+  4. Enable `Developer mode` in top right corner
+  5. Click `Load unpacked` in the top left corner, and select the folder with the files
+
+If you're a developer and have some free time to update this extension, I'd be happy to merge it and insert your lava referral link as default setting.
 -->
 <!--
 Opera extension is no longer present (as of 2023/01/16)
