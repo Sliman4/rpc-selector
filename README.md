@@ -14,11 +14,6 @@ In loving memory of Einar Egilsson, who gave us Redirector and selflessly nurtur
   5. Click `Load unpacked` in the top left corner, and select the folder with the files
 
 If you're a developer and have some free time to update this extension, I'd be happy to merge it and insert your lava referral link as default setting.
--->
-<!--
-Opera extension is no longer present (as of 2023/01/16)
-* [Opera](https://addons.opera.com/extensions/details/redirector-2/)
--->
 
 ## Examples
 ### NEAR RPC redirect
