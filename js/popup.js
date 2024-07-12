@@ -50,10 +50,10 @@ function pageLoad() {
 
 	el("#rpc-near-org").addEventListener('click', () => setRpcUrl("https://rpc.mainnet.near.org/"));
 	el("#rpc-lava").addEventListener('click', () => setRpcUrl("https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/"));
-	el("#rpc-fastnear").addEventListener('click', () => setRpcUrl("https://rpc.fastnear.com/"));
+	el("#rpc-fastnear").addEventListener('click', () => setRpcUrl("https://free.rpc.fastnear.com/"));
 	el("#rpc-near-org-beta").addEventListener('click', () => setRpcUrl("https://beta.rpc.mainnet.near.org/"));
 	el("#rpc-ankr").addEventListener('click', () => setRpcUrl("https://rpc.ankr.com/near/"));
-	el("#rpc-web4").addEventListener('click', () => setRpcUrl("https://rpc.web4.near.page/"));
+	el("#rpc-shitzu").addEventListener('click', () => setRpcUrl("https://rpc.shitzuapes.xyz/"));
 	const inputField = el("#rpc-url");
 	inputField.addEventListener('input', () => {
 		setRpcUrl(inputField.value);

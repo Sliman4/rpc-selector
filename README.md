@@ -16,10 +16,10 @@ In loving memory of Einar Egilsson, who gave us Redirector and selflessly nurtur
 If you're a developer and have some free time to update this extension, I'd be happy to merge it and insert your lava referral link as default setting.
 
 ## Examples
-### NEAR RPC redirect
+### FASTNEAR RPC redirect
 - Example URL: `https://rpc.mainnet.near.org/`
-- Include pattern: `^https://(rpc\.fastnear\.com|rpc\.mainnet\.near\.org|beta\.rpc\.mainnet\.near\.org|rpc\.web4\.near\.page|near-mainnet\.api\.pagoda\.co/rpc/v1|1rpc\.io/near|near-mainnet-rpc\.allthatnode\.com:3030|rpc\.ankr\.com/near|public-rpc\.blockpi\.io/http/near|rpc\.near\.gateway\.fm|getblock\.io/nodes/near|near\.lavenderfive\.com|near\.lava\.build|nodereal\.io/api-marketplace/near-rpc|near\.nownodes\.io|endpoints\.omniatech\.io/v1/near/mainnet/public|api\.seracle\.com/saas/baas/rpc/near/mainnet/public)/?$`
-- Redirect to: `https://rpc.fastnear.com/`
+- Include pattern: `^https://((.*.)?rpc\.fastnear\.com|(beta\.)?rpc\.mainnet\.(near\.org|pagoda\.co)|rpc\.web4\.near\.page|near-mainnet\.api\.pagoda\.co/rpc/v1|1rpc\.io/near|near-mainnet-rpc\.allthatnode\.com:3030|rpc\.ankr\.com/near|public-rpc\.blockpi\.io/http/near|rpc\.near\.gateway\.fm|getblock\.io/nodes/near|near\.lavenderfive\.com|near\.lava\.build(/.*)?|nodereal\.io/api-marketplace/near-rpc|near\.nownodes\.io|endpoints\.omniatech\.io/v1/near/mainnet/public|api\.seracle\.com/saas/baas/rpc/near/mainnet/public|rpc\.shitzuapes\.xyz)/?$`
+- Redirect to: `https://free.rpc.fastnear.com/`
 - Pattern type: Regular Expression
 - Description: Redirect all known RPC URLs to [FASTNEAR](https://fastnear.com/)
 

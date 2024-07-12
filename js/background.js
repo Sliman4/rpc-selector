@@ -10,12 +10,12 @@ log.enabled = false;
 const DEFAULT_REDIRECT = new Redirect(
 	{
 		"description": "Main RPC redirect that makes this extension work",
-		"exampleUrl": "https://rpc.fastnear.com/",
+		"exampleUrl": "https://rpc.mainnet.near.org/",
 		"exampleResult": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
 		"error": null,
-		"includePattern": "^https://(rpc\\.fastnear\\.com|rpc\\.mainnet\\.near\\.org|beta\\.rpc\\.mainnet\\.near\\.org|rpc\\.web4\\.near\\.page|near-mainnet\\.api\\.pagoda\\.co/rpc/v1|1rpc\\.io/near|near-mainnet-rpc\\.allthatnode\\.com:3030|rpc\\.ankr\\.com/near|public-rpc\\.blockpi\\.io/http/near|rpc\\.near\\.gateway\\.fm|getblock\\.io/nodes/near|near\\.lavenderfive\\.com|near\\.lava\\.build|nodereal\\.io/api-marketplace/near-rpc|near\\.nownodes\\.io|endpoints\\.omniatech\\.io/v1/near/mainnet/public|api\\.seracle\\.com/saas/baas/rpc/near/mainnet/public)/?$",
+		"includePattern": "^https://((.*.)?rpc\.fastnear\.com|(beta\.)?rpc\.mainnet\.(near\.org|pagoda\.co)|rpc\.web4\.near\.page|near-mainnet\.api\.pagoda\.co/rpc/v1|1rpc\.io/near|near-mainnet-rpc\.allthatnode\.com:3030|rpc\.ankr\.com/near|public-rpc\.blockpi\.io/http/near|rpc\.near\.gateway\.fm|getblock\.io/nodes/near|near\.lavenderfive\.com|near\.lava\.build(/.*)?|nodereal\.io/api-marketplace/near-rpc|near\.nownodes\.io|endpoints\.omniatech\.io/v1/near/mainnet/public|api\.seracle\.com/saas/baas/rpc/near/mainnet/public|rpc\.shitzuapes\.xyz)/?$",
 		"excludePattern": "",
-		"patternDesc": "FASTNEAR to Lava",
+		"patternDesc": "Near.org to Lava",
 		"redirectUrl": "https://near.lava.build/lava-referer-013c0d3c-d2c5-4078-b927-5fe046e6668d/",
 		"patternType": "R",
 		"processMatches": "noProcessing",
@@ -92,6 +92,9 @@ function checkRedirects(details) {
 		var result = r.getMatch(details.url);
 
 		if (result.isMatch) {
+
+			// The default regexp is likely to match the destination url, so ignore it if that's the case
+			if (details.url === result.redirectTo) return {};
 
 			//Check if we're stuck in a loop where we keep redirecting this, in that
 			//case ignore!
