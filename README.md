@@ -23,6 +23,29 @@ If you're a developer and have some free time to update this extension, I'd be h
 - Pattern type: Regular Expression
 - Description: Redirect all known RPC URLs to [FASTNEAR](https://fastnear.com/)
 
+### [Intear Price Indexer](https://github.com/INTEARnear/price-indexer) instead of [ref-indexer-helper](https://github.com/ref-finance/indexer-helper)
+- Example URL: `https://indexer.ref.finance/list-token-price`
+- Include pattern: `https://(indexer|api).ref.finance/(list-token-price|token-price)`
+- Redirect to: `https://prices.intear.tech/$2`
+- Pattern type: Regular Expression
+- Description: Change price source from Ref to Intear for automatic new token discovery (degen mode)
+
+### [NEAR Wallet](https://wallet.near.org) to [MyNearWallet](https://app.mynearwallet.com)
+- Example URL: `https://wallet.near.org/?sign=123`
+- Include pattern: `https://wallet.near.org/*`
+- Redirect to: `https://app.mynearwallet.com/$1`
+- Pattern type: Wildcard
+- Description: Make old dapps that were made for NEAR Wallet, work with MyNearWallet. The compatibility is nearly 100%
+
+### Mintbase Wallet to Bitte Wallet
+- Example URL: `https://wallet.mintbase.xyz/claim/slime`
+- Include pattern: `https://wallet.mintbase.xyz/*`
+- Redirect to: `https://wallet.bitte.ai/$1`
+- Pattern type: Wildcard
+- Description: Redirect Mintbase Wallet to `bitte.ai` domain
+
+## Non-near examples
+
 ### De-mobilizer
 - Example URL: `https://en.m.wikipedia.org/`
 - Include pattern: `^(https?://)([a-z0-9-]*\.)m(?:obile)?\.(.*)`
