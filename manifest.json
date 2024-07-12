@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "RPC Selector",
   "description": "Changes all RPC calls to a custom URL",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "icons": {
     "16": "images/icon-light-theme-16.png",
     "19": "images/icon-light-theme-19.png",
