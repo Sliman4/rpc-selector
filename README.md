@@ -1,5 +1,5 @@
 ## Description
-Web browser extension (Firefox, Vivaldi, Chrome, Opera, Edge) to redirect URLs based on regex or wildcard patterns. Fork on [Redirector](https://github.com/einaregilsson/Redirector), optimized for redirecting NEAR RPC requests.
+Web browser extension (Firefox, Vivaldi, Chrome, Opera, Edge) to redirect URLs based on regex or wildcard patterns. Fork of [Redirector](https://github.com/einaregilsson/Redirector), optimized for redirecting NEAR RPC requests.
 
 After installation, it will start working immediately with no additional setup, the default replacement RPC is `near.lava.build`. You can check that the extension is working by opening F12 > Network tab:
 
