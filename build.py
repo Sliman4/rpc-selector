@@ -7,7 +7,7 @@ def get_files_to_zip():
 	exclude = [
 		r'\.(py|sh|pem)$', #file endings
 		r'(\\|/)\.', #hidden files
-		r'package\.json|icon\.html', #file names
+		r'package\.json|icon\.html|screenshot\.png', #file names
 		r'(\\|/)(promo|unittest|build)(\\|/)' #folders
 	]
 
